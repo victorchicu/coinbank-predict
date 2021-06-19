@@ -1,5 +1,4 @@
-from flask import Flask, jsonify
-import configs
+from flask import Flask
 from api import Cryptocompare
 
 app = Flask(__name__)
