@@ -1,11 +1,13 @@
-from flask import Flask
+from flask import Flask, jsonify
+import configs
+from api import Cryptocompare
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+@app.route('/price/<symbol>/to/<fiat>')
+def get_crypto_price(symbol, fiat):
+    return Cryptocompare.get_symbol_price(symbol, fiat)
 
 
 if __name__ == '__main__':
